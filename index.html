@@ -1,0 +1,1447 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Management Etiquette | Greater Ambitions LLC</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --burgundy: #52211A;
+    --burgundy-light: #7a342a;
+    --gold: #A87605;
+    --gold-light: #c99b2a;
+    --cream: #F5EFE6;
+    --warm-white: #FAF7F3;
+    --charcoal: #1C1C1C;
+    --mid: #4A4035;
+    --muted: #8a7c6e;
+    --border: #e0d6c8;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  
+  html { width: 100%; height: 100%; scroll-behavior: smooth; }
+
+  body {
+    width: 100%;
+    height: 100%;
+    font-family: 'DM Sans', sans-serif;
+    background: var(--warm-white);
+    color: var(--charcoal);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    background: var(--charcoal);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(168,118,5,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 60% at 10% 80%, rgba(82,33,26,0.35) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  .cover-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(168,118,5,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(168,118,5,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  .cover-header {
+    padding: 40px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .logo-block { 
+    display: flex; 
+    flex-direction: column;
+  }
+
+  .logo-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 0.03em;
+  }
+
+  .logo-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    color: var(--muted);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  .cover-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--gold);
+    border: 1px solid rgba(168,118,5,0.4);
+    padding: 6px 14px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .cover-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 60px 60px 40px;
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+  }
+
+  .cover-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .cover-eyebrow::before {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .cover-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 900;
+    line-height: 1.0;
+    color: var(--cream);
+    margin-bottom: 30px;
+  }
+
+  .cover-title em { 
+    font-style: italic; 
+    color: var(--gold);
+  }
+
+  .cover-subtitle {
+    font-size: 1.15rem;
+    color: rgba(245,239,230,0.65);
+    font-weight: 300;
+    max-width: 560px;
+    line-height: 1.75;
+    margin-bottom: 48px;
+  }
+
+  .cover-cta-row {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--charcoal);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .btn-ghost {
+    color: var(--cream);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    opacity: 0.6;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: opacity 0.2s;
+  }
+
+  .btn-ghost:hover { opacity: 1; }
+
+  .cover-footer {
+    padding: 30px 60px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-top: 1px solid rgba(168,118,5,0.15);
+  }
+
+  .cover-stat-row { 
+    display: flex; 
+    gap: 48px;
+  }
+
+  .cover-stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--gold);
+    display: block;
+  }
+
+  .cover-stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .cover-author {
+    font-size: 0.78rem;
+    color: rgba(245,239,230,0.4);
+    text-align: right;
+    line-height: 1.5;
+  }
+
+  .cover-author strong { color: rgba(245,239,230,0.75); display: block; }
+
+  /* ── MAIN CONTENT ── */
+  .page { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
+
+  /* ── INTRO STRIP ── */
+  .intro-strip {
+    background: var(--burgundy);
+    color: var(--cream);
+    padding: 72px 0;
+  }
+
+  .intro-strip .page {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .intro-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+  }
+
+  .intro-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .intro-body {
+    font-size: 0.95rem;
+    color: rgba(245,239,230,0.75);
+    font-weight: 300;
+    line-height: 1.85;
+  }
+
+  .stat-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .stat-card {
+    background: rgba(245,239,230,0.07);
+    border: 1px solid rgba(168,118,5,0.25);
+    padding: 24px 20px;
+  }
+
+  .stat-card-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-card-label {
+    font-size: 0.8rem;
+    color: rgba(245,239,230,0.55);
+    margin-top: 8px;
+    font-weight: 300;
+  }
+
+  /* ── SECTIONS ── */
+  .section { padding: 88px 0; }
+  .section-alt { background: var(--cream); }
+  .section-dark { background: var(--charcoal); color: var(--cream); }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: block;
+    width: 28px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: var(--charcoal);
+  }
+
+  .section-dark .section-title { color: var(--cream); }
+
+  .section-desc {
+    font-size: 1rem;
+    color: var(--mid);
+    max-width: 620px;
+    font-weight: 300;
+    line-height: 1.8;
+    margin-bottom: 56px;
+  }
+
+  .section-dark .section-desc { color: rgba(245,239,230,0.6); }
+
+  /* ── ROLE CARDS (etiquette lists) ── */
+  .roles-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .role-card {
+    background: var(--warm-white);
+    border-left: 4px solid transparent;
+    overflow: hidden;
+    transition: border-color 0.25s;
+  }
+
+  .section-alt .role-card { background: var(--warm-white); }
+  .role-card:hover { border-left-color: var(--gold); }
+
+  .role-header {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    align-items: center;
+    gap: 24px;
+    padding: 28px 32px;
+  }
+
+  .role-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--gold);
+    opacity: 0.5;
+  }
+
+  .role-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--charcoal);
+  }
+
+  .role-level {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--cream);
+    padding: 5px 12px;
+    white-space: nowrap;
+  }
+
+  .role-body {
+    padding: 0 32px 28px 112px;
+  }
+
+  .role-section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+
+  .role-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .role-list li {
+    font-size: 0.88rem;
+    color: var(--mid);
+    font-weight: 300;
+    padding-left: 18px;
+    position: relative;
+    line-height: 1.65;
+  }
+
+  .role-list li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.7rem;
+  }
+
+  /* ── PILLARS (principles) ── */
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--border);
+  }
+
+  .pillar {
+    background: var(--warm-white);
+    padding: 40px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.2s;
+  }
+
+  .section-alt .pillar { background: var(--cream); }
+
+  .pillar::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 3px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+
+  .pillar:hover::after { transform: scaleX(1); }
+
+  .pillar-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .pillar-icon {
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .pillar-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--charcoal);
+  }
+
+  .pillar-body {
+    font-size: 0.87rem;
+    color: var(--mid);
+    font-weight: 300;
+    line-height: 1.75;
+  }
+
+  /* ── FW-CARDS (callout / framework blocks) ── */
+  .framework-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .fw-card {
+    border: 1px solid var(--border);
+    padding: 36px 32px;
+    position: relative;
+    background: var(--warm-white);
+  }
+
+  .fw-card-accent {
+    position: absolute;
+    top: 0; left: 0;
+    width: 40px; height: 3px;
+    background: var(--gold);
+  }
+
+  .fw-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: var(--charcoal);
+    margin-top: 14px;
+  }
+
+  .fw-card-body {
+    font-size: 0.86rem;
+    color: var(--mid);
+    font-weight: 300;
+    line-height: 1.75;
+  }
+
+  .fw-tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .fw-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    background: rgba(82,33,26,0.08);
+    padding: 4px 10px;
+  }
+
+  /* ── MISTAKES GRID ── */
+  .mistakes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .mistake-card {
+    border: 1px solid var(--border);
+    padding: 28px 28px 28px 56px;
+    position: relative;
+    background: var(--warm-white);
+  }
+
+  .mistake-x {
+    position: absolute;
+    left: 20px; top: 26px;
+    width: 22px; height: 22px;
+    background: rgba(82,33,26,0.12);
+    color: var(--burgundy);
+    font-size: 0.75rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mistake-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 8px;
+  }
+
+  .mistake-body {
+    font-size: 0.83rem;
+    color: var(--mid);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* ── TECH-COL DARK GRID (used for do/don't contrast) ── */
+  .tech-cols {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+    background: rgba(168,118,5,0.15);
+  }
+
+  .tech-col {
+    background: var(--charcoal);
+    padding: 36px 32px;
+  }
+
+  .tech-col-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(168,118,5,0.2);
+  }
+
+  .tech-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .tech-list li {
+    font-size: 0.86rem;
+    color: rgba(245,239,230,0.7);
+    font-weight: 300;
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    line-height: 1.55;
+  }
+
+  .tech-list li::before {
+    content: '▸';
+    color: var(--gold);
+    font-size: 0.65rem;
+    flex-shrink: 0;
+  }
+
+  .tech-list.do li::before { color: #7fc47f; }
+  .tech-list.dont li::before { content: '✕'; color: var(--burgundy); font-size: 0.6rem; }
+
+  /* ── EXEC TIP BOX ── */
+  .exec-tip {
+    margin-top: 32px;
+    padding: 24px 28px;
+    border: 1px solid rgba(168,118,5,0.25);
+    background: rgba(168,118,5,0.05);
+  }
+
+  .exec-tip-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .exec-tip-body {
+    font-size: 0.88rem;
+    color: rgba(245,239,230,0.65);
+    font-weight: 300;
+    line-height: 1.75;
+  }
+
+  /* ── CTA SECTION ── */
+  .cta-section {
+    background: var(--burgundy);
+    padding: 100px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 70% at 50% -10%, rgba(168,118,5,0.18) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cta-eyebrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 24px;
+  }
+
+  .cta-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.2;
+    max-width: 680px;
+    margin: 0 auto 20px;
+  }
+
+  .cta-title em { font-style: italic; color: var(--gold); }
+
+  .cta-sub {
+    font-size: 0.95rem;
+    color: rgba(245,239,230,0.6);
+    max-width: 480px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--charcoal);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 18px 44px;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .cta-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
+
+  .cta-secondary {
+    display: block;
+    margin-top: 20px;
+    font-size: 0.78rem;
+    color: rgba(245,239,230,0.35);
+    font-weight: 300;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--charcoal);
+    padding: 48px 0;
+    border-top: 1px solid rgba(168,118,5,0.15);
+  }
+
+  .footer .page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    color: var(--gold);
+  }
+
+  .footer-brand span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-top: 4px;
+  }
+
+  .footer-copy {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-align: right;
+    line-height: 1.8;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .cover-header, .cover-body, .cover-footer { padding-left: 28px; padding-right: 28px; }
+    .cover-stat-row { gap: 24px; }
+    .intro-strip .page { grid-template-columns: 1fr; gap: 40px; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .framework-grid { grid-template-columns: 1fr; }
+    .mistakes-grid { grid-template-columns: 1fr; }
+    .tech-cols { grid-template-columns: 1fr; }
+    .role-body { padding-left: 56px; }
+    .role-header { grid-template-columns: 48px 1fr; }
+    .role-level { display: none; }
+    .page { padding: 0 24px; }
+    .footer .page { flex-direction: column; gap: 20px; text-align: center; }
+    .footer-copy { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════ COVER ══════════ -->
+<section class="cover">
+  <div class="cover-grid"></div>
+  <header class="cover-header">
+    <div class="logo-block">
+      <a href='https://postimg.cc/bSYhPL8Q' target='_blank'><img src='https://i.postimg.cc/bSYhPL8Q/rev-Screenshot-2026-04-27-at-10-23-19-AM.png' border='0' alt='rev-Screenshot-2026-04-27-at-10-23-19-AM'></a>
+    </div>
+    <span class="cover-badge">Free Digital Guide</span>
+  </header>
+
+  <div class="cover-body">
+    <div class="cover-eyebrow">Execution Architecture Series</div>
+    <h1 class="cover-title">Project<br>Management<br><em>Etiquette</em></h1>
+    <p class="cover-subtitle">The professional standards, norms, and non-negotiables that separate high-trust project teams from the ones firefighting until closeout. Applies in every direction — for PMs, stakeholders, and everyone in the room.</p>
+    <div class="cover-cta-row">
+      <a href="#start" class="btn-primary">Read the Guide ↓</a>
+      <a href="#cta" class="btn-ghost">Book a Strategy Call →</a>
+    </div>
+  </div>
+
+  <footer class="cover-footer">
+    <div class="cover-stat-row">
+      <div>
+        <span class="cover-stat-num">$500M+</span>
+        <span class="cover-stat-label">Program Value Led</span>
+      </div>
+      <div>
+        <span class="cover-stat-num">20+</span>
+        <span class="cover-stat-label">Years of Execution</span>
+      </div>
+      <div>
+        <span class="cover-stat-num">100%</span>
+        <span class="cover-stat-label">Practitioner-Built</span>
+      </div>
+    </div>
+    <div class="cover-author">
+      <strong>Dr. Minina Johnson, DBA, PMP</strong>
+      Founder &amp; Strategic Execution Architect
+    </div>
+  </footer>
+</section>
+
+<!-- ══════════ INTRO STRIP ══════════ -->
+<section class="intro-strip" id="start">
+  <div class="page">
+    <div>
+      <div class="intro-tag">Why Etiquette Is Execution Infrastructure</div>
+      <h2 class="intro-heading">The Norms Nobody Enforces Are the Ones That Break Projects</h2>
+      <p class="intro-body">Execution gaps don't start with bad strategy. They start with broken communication, undefined accountability, and professional norms that no one ever made explicit. PM etiquette isn't soft — it's the invisible architecture underneath every project that succeeds or fails.<br><br>This guide covers the standards that apply in every direction: how a PM should lead, and how teams, stakeholders, and clients should engage with the PM function in return.</p>
+    </div>
+    <div class="stat-cards">
+      <div class="stat-card">
+        <span class="stat-card-num">57%</span>
+        <p class="stat-card-label">of project failures are attributed to communication breakdown (PMI)</p>
+      </div>
+      <div class="stat-card">
+        <span class="stat-card-num">39%</span>
+        <p class="stat-card-label">of projects fail due to lack of clearly defined roles and accountability</p>
+      </div>
+      <div class="stat-card">
+        <span class="stat-card-num">70%</span>
+        <p class="stat-card-label">of organizations report recurring scope creep from undocumented decisions</p>
+      </div>
+      <div class="stat-card">
+        <span class="stat-card-num">2×</span>
+        <p class="stat-card-label">higher success rate on teams with established communication norms</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SECTION 1: ETIQUETTE FOR THE PM ══════════ -->
+<section class="section" id="leading">
+  <div class="page">
+    <div class="section-label">Section 01</div>
+    <h2 class="section-title">Etiquette When<br>You're the PM Leading</h2>
+    <p class="section-desc">You set the tone for the entire engagement. These are the non-negotiables of professional PM conduct — what you owe the people counting on you to drive delivery.</p>
+
+    <div class="roles-list">
+
+      <div class="role-card">
+        <div class="role-header">
+          <span class="role-num">01</span>
+          <div>
+            <div class="role-name">Own the Communication Cadence</div>
+            <div style="font-size:0.8rem;color:var(--muted);font-weight:300;margin-top:3px;">Don't make stakeholders chase you for updates</div>
+          </div>
+          <span class="role-level">PM Conduct</span>
+        </div>
+        <div class="role-body">
+          <div class="role-section-label">The Standard</div>
+          <ul class="role-list">
+            <li>Establish your status rhythms at kickoff — weekly reports, bi-weekly reviews, and escalation channels defined before the first deliverable is due.</li>
+            <li>Proactive updates build trust faster than any credential. Silence signals loss of control, even when everything is technically on track.</li>
+            <li>Use a consistent format so stakeholders know exactly where to look for what they need — no hunting, no guessing.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-header">
+          <span class="role-num">02</span>
+          <div>
+            <div class="role-name">Document Decisions, Not Just Tasks</div>
+            <div style="font-size:0.8rem;color:var(--muted);font-weight:300;margin-top:3px;">Verbal agreements are execution liabilities</div>
+          </div>
+          <span class="role-level">PM Conduct</span>
+        </div>
+        <div class="role-body">
+          <div class="role-section-label">The Standard</div>
+          <ul class="role-list">
+            <li>Every scope decision, directional shift, and key approval must be captured in writing within 24 hours of the conversation that produced it.</li>
+            <li>Send a follow-up email after every decision-making meeting. A two-sentence recap prevents a two-week dispute down the road.</li>
+            <li>Maintain a decision log that is visible to all key stakeholders — not just buried in your project folder.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-header">
+          <span class="role-num">03</span>
+          <div>
+            <div class="role-name">Surface Risk Before It Becomes Crisis</div>
+            <div style="font-size:0.8rem;color:var(--muted);font-weight:300;margin-top:3px;">Bring a mitigation, not just a problem statement</div>
+          </div>
+          <span class="role-level">PM Conduct</span>
+        </div>
+        <div class="role-body">
+          <div class="role-section-label">The Standard</div>
+          <ul class="role-list">
+            <li>Flag risks the moment they emerge — not after they've materialized into a project disruption you have to explain in a steering committee.</li>
+            <li>Never bring a problem without a proposed path forward. Even a partially developed mitigation demonstrates strategic thinking and earns credibility.</li>
+            <li>Maintain an active RAID log and review it in every project team meeting — risk is not a quarterly exercise.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-header">
+          <span class="role-num">04</span>
+          <div>
+            <div class="role-name">Protect the Team's Time and Focus</div>
+            <div style="font-size:0.8rem;color:var(--muted);font-weight:300;margin-top:3px;">Cognitive overload is a delivery risk</div>
+          </div>
+          <span class="role-level">PM Conduct</span>
+        </div>
+        <div class="role-body">
+          <div class="role-section-label">The Standard</div>
+          <ul class="role-list">
+            <li>Don't schedule a meeting when an email works. Don't send an email when a Slack message works. Respect the cognitive load of the people doing the work.</li>
+            <li>Cancel meetings that don't have a defined decision or deliverable as output — and say so openly. It signals that you value the team's execution time.</li>
+            <li>Shield your team from organizational noise: ad hoc requests, scope additions, and executive side conversations that bypass the project structure.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-header">
+          <span class="role-num">05</span>
+          <div>
+            <div class="role-name">Facilitate, Don't Dominate</div>
+            <div style="font-size:0.8rem;color:var(--muted);font-weight:300;margin-top:3px;">Your job is to drive decisions, not fill airtime</div>
+          </div>
+          <span class="role-level">PM Conduct</span>
+        </div>
+        <div class="role-body">
+          <div class="role-section-label">The Standard</div>
+          <ul class="role-list">
+            <li>In meetings, your role is to draw out the right information, surface the real blockers, and move the group to a decision — not to lecture or demonstrate your own expertise.</li>
+            <li>Give subject matter experts the floor to lead their domains. Interrupting an SME to restate their point is not facilitation.</li>
+            <li>Use structured agendas with timed slots. When an item runs long, call it — don't let one topic consume the meeting at the expense of three others.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-header">
+          <span class="role-num">06</span>
+          <div>
+            <div class="role-name">Close the Loop Every Time</div>
+            <div style="font-size:0.8rem;color:var(--muted);font-weight:300;margin-top:3px;">Ambiguity is where projects go to die</div>
+          </div>
+          <span class="role-level">PM Conduct</span>
+        </div>
+        <div class="role-body">
+          <div class="role-section-label">The Standard</div>
+          <ul class="role-list">
+            <li>Every action item must leave every meeting with three things: an owner, a due date, and a follow-up mechanism. "We'll figure it out" is not a status.</li>
+            <li>At the end of every meeting, verbally confirm action items before anyone leaves. Then send the recap in writing within the hour.</li>
+            <li>Follow up on open actions at least 24 hours before the deadline — not the morning it's due.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-header">
+          <span class="role-num">07</span>
+          <div>
+            <div class="role-name">Manage Up With Confidence</div>
+            <div style="font-size:0.8rem;color:var(--muted);font-weight:300;margin-top:3px;">Bring a decision point, not a problem dump</div>
+          </div>
+          <span class="role-level">PM Conduct</span>
+        </div>
+        <div class="role-body">
+          <div class="role-section-label">The Standard</div>
+          <ul class="role-list">
+            <li>When you escalate to leadership, come with a clear framing: here's the situation, here's the impact, here's what I recommend, here's what I need from you.</li>
+            <li>Executives don't have time to untangle context. Do the synthesis work before you walk into the room — or send the message.</li>
+            <li>Don't wait until the situation is critical to involve leadership. A proactive heads-up at yellow preserves options that a red-flag escalation doesn't.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-header">
+          <span class="role-num">08</span>
+          <div>
+            <div class="role-name">Acknowledge What You Don't Know</div>
+            <div style="font-size:0.8rem;color:var(--muted);font-weight:300;margin-top:3px;">Precision over performance — every time</div>
+          </div>
+          <span class="role-level">PM Conduct</span>
+        </div>
+        <div class="role-body">
+          <div class="role-section-label">The Standard</div>
+          <ul class="role-list">
+            <li>The fastest path to losing credibility is bluffing on something you don't know. Say "I'll verify and get back to you by EOD" — then do it.</li>
+            <li>Stakeholders and executives can handle uncertainty. What they can't handle is discovering that you manufactured confidence to avoid an awkward pause.</li>
+            <li>Build a culture where "I don't know yet, but I'll find out" is respected — not punished. It starts with you modeling it.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SECTION 2: ETIQUETTE FOR STAKEHOLDERS ══════════ -->
+<section class="section section-alt">
+  <div class="page">
+    <div class="section-label">Section 02</div>
+    <h2 class="section-title">Etiquette as a Stakeholder<br>or Team Member</h2>
+    <p class="section-desc">Working with a PM is a partnership — and the quality of your engagement determines the quality of the outcomes you receive. These are the professional standards expected of everyone in the project ecosystem.</p>
+
+    <div class="roles-list">
+
+      <div class="role-card">
+        <div class="role-header">
+          <span class="role-num">01</span>
+          <div>
+            <div class="role-name">Respond to Status Requests Promptly</div>
+            <div style="font-size:0.8rem;color:var(--muted);font-weight:300;margin-top:3px;">Your silence creates false green statuses upstream</div>
+          </div>
+          <span class="role-level">Stakeholder Conduct</span>
+        </div>
+        <div class="role-body">
+          <div class="role-section-label">The Standard</div>
+          <ul class="role-list">
+            <li>When your PM asks for an update, that's not administrative busywork — it's data that affects decisions being made above you. Treat it accordingly.</li>
+            <li>A delayed response to a status request doesn't just inconvenience your PM. It can cascade into a steering committee receiving inaccurate portfolio information.</li>
+            <li>If you don't have an update yet, say so explicitly. "No change, still on track for Friday" is a valid and useful response.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-header">
+          <span class="role-num">02</span>
+          <div>
+            <div class="role-name">Flag Changes to Scope Immediately</div>
+            <div style="font-size:0.8rem;color:var(--muted);font-weight:300;margin-top:3px;">Undisclosed scope changes are the #1 cause of blown timelines</div>
+          </div>
+          <span class="role-level">Stakeholder Conduct</span>
+        </div>
+        <div class="role-body">
+          <div class="role-section-label">The Standard</div>
+          <ul class="role-list">
+            <li>If requirements shift on your end, notify your PM before you act on the change — not after the work is already in progress under new assumptions.</li>
+            <li>Even informal direction from a senior leader constitutes a scope change if it affects deliverables or timelines. Loop in the PM immediately.</li>
+            <li>A scope change disclosed early can be accommodated. A scope change discovered at delivery is a crisis.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-header">
+          <span class="role-num">03</span>
+          <div>
+            <div class="role-name">Come to Meetings Prepared</div>
+            <div style="font-size:0.8rem;color:var(--muted);font-weight:300;margin-top:3px;">Don't make the PM re-teach context every session</div>
+          </div>
+          <span class="role-level">Stakeholder Conduct</span>
+        </div>
+        <div class="role-body">
+          <div class="role-section-label">The Standard</div>
+          <ul class="role-list">
+            <li>Read the pre-read materials. Know your open action items. A PM should not spend the first 10 minutes of every meeting re-summarizing last week's decisions to people who didn't review the recap.</li>
+            <li>Come with opinions, not just attendance. If a decision is on the agenda, bring a point of view — even a provisional one.</li>
+            <li>If you can't attend, send a delegate who is actually authorized to make decisions on your behalf — not just someone to report back to you.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-header">
+          <span class="role-num">04</span>
+          <div>
+            <div class="role-name">Respect the Process Structure</div>
+            <div style="font-size:0.8rem;color:var(--muted);font-weight:300;margin-top:3px;">Bypassing PM infrastructure — even with good intentions — creates debt</div>
+          </div>
+          <span class="role-level">Stakeholder Conduct</span>
+        </div>
+        <div class="role-body">
+          <div class="role-section-label">The Standard</div>
+          <ul class="role-list">
+            <li>If there's a RAID log, use it. If there's a change control form, submit it. If there's an intake process, follow it. The system exists because chaos is more expensive than process friction.</li>
+            <li>Workarounds — even efficient-seeming ones — generate organizational debt that the PM has to clear. Don't trade short-term convenience for long-term project risk.</li>
+            <li>If a process genuinely isn't working, raise it formally. A retrospective, not a silent workaround, is how process improves.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-header">
+          <span class="role-num">05</span>
+          <div>
+            <div class="role-name">Own Your Action Items</div>
+            <div style="font-size:0.8rem;color:var(--muted);font-weight:300;margin-top:3px;">Your PM shouldn't have to chase you more than once</div>
+          </div>
+          <span class="role-level">Stakeholder Conduct</span>
+        </div>
+        <div class="role-body">
+          <div class="role-section-label">The Standard</div>
+          <ul class="role-list">
+            <li>If you committed to a deadline and circumstances change, surface that proactively — not the morning it's due and certainly not after it's already missed.</li>
+            <li>Treat action items from project meetings with the same weight as deliverables assigned by your direct manager. They carry equivalent organizational weight.</li>
+            <li>When you complete an action, close it out in the tool the team uses — don't make your PM audit for completeness manually.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-header">
+          <span class="role-num">06</span>
+          <div>
+            <div class="role-name">Don't Go Around the PM to Executives</div>
+            <div style="font-size:0.8rem;color:var(--muted);font-weight:300;margin-top:3px;">Lateral escalation without notice is a trust-breaker</div>
+          </div>
+          <span class="role-level">Stakeholder Conduct</span>
+        </div>
+        <div class="role-body">
+          <div class="role-section-label">The Standard</div>
+          <ul class="role-list">
+            <li>Escalating directly to leadership without first looping in your PM undermines the governance structure and creates conflicting directives at the top.</li>
+            <li>If you feel an issue requires executive attention, tell your PM first — or at minimum, notify them simultaneously so they're not blindsided in the leadership conversation.</li>
+            <li>The PM needs to have the full picture to manage the project. Fragmented information flows produce fragmented decisions.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-header">
+          <span class="role-num">07</span>
+          <div>
+            <div class="role-name">Separate Urgency From Priority</div>
+            <div style="font-size:0.8rem;color:var(--muted);font-weight:300;margin-top:3px;">Treating everything as P1 means nothing actually is</div>
+          </div>
+          <span class="role-level">Stakeholder Conduct</span>
+        </div>
+        <div class="role-body">
+          <div class="role-section-label">The Standard</div>
+          <ul class="role-list">
+            <li>Urgency is how something feels. Priority is where it sits relative to every other commitment in the project portfolio. They are not the same thing.</li>
+            <li>Work with your PM to triage incoming demands. A request that feels critical to you may have downstream dependencies that make it strategically lower priority.</li>
+            <li>When stakeholders consistently cry wolf on urgency, PMs stop calibrating their responses accurately — and real priorities get lost in the noise.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="role-card">
+        <div class="role-header">
+          <span class="role-num">08</span>
+          <div>
+            <div class="role-name">Trust the System — Challenge It Properly</div>
+            <div style="font-size:0.8rem;color:var(--muted);font-weight:300;margin-top:3px;">Disruption has a time and a place</div>
+          </div>
+          <span class="role-level">Stakeholder Conduct</span>
+        </div>
+        <div class="role-body">
+          <div class="role-section-label">The Standard</div>
+          <ul class="role-list">
+            <li>If you think a process isn't working, raise it during a retrospective or a structured feedback session — not mid-sprint in a Slack thread or mid-meeting in front of the full team.</li>
+            <li>The goal isn't blind compliance — it's constructive improvement. Raise concerns in a forum where they can be evaluated and acted on, not just vented.</li>
+            <li>The best project teams are both disciplined and adaptive. They operate within the system while continuously making the system better.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SECTION 3: UNIVERSAL PRINCIPLES ══════════ -->
+<section class="section">
+  <div class="page">
+    <div class="section-label">Section 03</div>
+    <h2 class="section-title">Universal Principles —<br>Applies to Everyone on the Project</h2>
+    <p class="section-desc">These norms don't belong to any single role. They are the shared professional contract that makes high-performing project teams possible — regardless of title, seniority, or function.</p>
+
+    <div class="pillars-grid">
+      <div class="pillar">
+        <span class="pillar-num">Norm 01 —</span>
+        <span class="pillar-icon">🤝</span>
+        <div class="pillar-title">Disagree in the Room, Commit Outside It</div>
+        <p class="pillar-body">Challenge decisions while they're still being made. Once a path is chosen, execute it with full effort — or formally reopen the decision through the proper channel. Half-commitment in execution is worse than honest disagreement.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">Norm 02 —</span>
+        <span class="pillar-icon">🔍</span>
+        <div class="pillar-title">Assume Positive Intent, Verify the Facts</div>
+        <p class="pillar-body">When something goes sideways, investigate before assigning blame. Most project issues trace back to process failures, misaligned expectations, or missing information — not individual character flaws. Start there.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">Norm 03 —</span>
+        <span class="pillar-icon">⏱️</span>
+        <div class="pillar-title">Respect Meeting Time as a Budget Line</div>
+        <p class="pillar-body">Every minute in a meeting has a dollar cost. Start on time. End on time. Cancel meetings that don't have a clear decision or deliverable as output. Meetings are not relationship substitutes — they are decision mechanisms.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">Norm 04 —</span>
+        <span class="pillar-icon">📨</span>
+        <div class="pillar-title">Use the Right Channel for the Right Message</div>
+        <p class="pillar-body">Complex decisions belong in writing. Real-time crises belong in conversation. Don't bury a major decision in a Slack message, and don't ambush someone with a critical risk in a weekly status email that goes to 40 people.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">Norm 05 —</span>
+        <span class="pillar-icon">🛡️</span>
+        <div class="pillar-title">Protect Psychological Safety on the Team</div>
+        <p class="pillar-body">Teams that fear surfacing problems hide them until they explode. Create — and model — an environment where raising bad news early is rewarded, not punished. Safety is not a cultural amenity. It is a risk management strategy.</p>
+      </div>
+      <div class="pillar">
+        <span class="pillar-num">Norm 06 —</span>
+        <span class="pillar-icon">🔄</span>
+        <div class="pillar-title">Conduct Meaningful Retrospectives</div>
+        <p class="pillar-body">Lessons learned mean nothing if they stay in a document. A retrospective is only valuable if it produces specific, actionable changes to how the team operates in the next sprint, phase, or project. Close the loop on lessons — every time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SECTION 4: DO'S AND DON'TS ══════════ -->
+<section class="section section-dark">
+  <div class="page">
+    <div class="section-label">Section 04</div>
+    <h2 class="section-title">Quick Reference:<br>PM Etiquette Do's &amp; Don'ts</h2>
+    <p class="section-desc">The behaviors that build trust fast — and the ones that erode it even faster. Print this. Share it at kickoff. Make it part of your team norms conversation.</p>
+
+    <div class="tech-cols">
+      <div class="tech-col">
+        <div class="tech-col-label">✓ &nbsp;Do These</div>
+        <ul class="tech-list do">
+          <li>Send meeting recaps within 24 hours of every decision-making session</li>
+          <li>Come to every meeting with a prepared agenda and a defined outcome</li>
+          <li>Flag risks the moment they emerge — with a mitigation option ready</li>
+          <li>Confirm action items verbally before every meeting ends</li>
+          <li>Close out completed tasks in the project tool — don't tell the PM verbally</li>
+          <li>Respond to status requests within one business day, even if the answer is "no change"</li>
+          <li>Submit scope changes through the change control process, regardless of size</li>
+          <li>Say "I'll get back to you by EOD" when you don't have the answer yet</li>
+          <li>Raise process concerns in retrospectives, not in the middle of execution</li>
+          <li>Keep escalations structured: situation, impact, recommendation, ask</li>
+        </ul>
+      </div>
+      <div class="tech-col">
+        <div class="tech-col-label">✕ &nbsp;Stop Doing These</div>
+        <ul class="tech-list dont">
+          <li>Going silent when you're behind — that silence reads as "on track" to everyone above you</li>
+          <li>Making scope decisions in Slack without looping in the PM</li>
+          <li>Scheduling recurring meetings with no agenda and no defined owner</li>
+          <li>Escalating to leadership without notifying your PM first or simultaneously</li>
+          <li>Bluffing through a question you don't actually know the answer to</li>
+          <li>Treating every incoming request as equally urgent — triage is a skill, use it</li>
+          <li>Completing an action item without closing it out in the project tool</li>
+          <li>Complaining about a process while silently working around it instead of raising it</li>
+          <li>Running meetings without time-boxing agenda items — letting one topic eat the hour</li>
+          <li>Sharing bad news at the last possible moment to avoid uncomfortable conversations earlier</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exec-tip">
+      <div class="exec-tip-label">⚡ EXECUTION TRUTH</div>
+      <p class="exec-tip-body">Most project failures aren't caused by bad technology, missing resources, or wrong methodology. They're caused by the professional norms nobody enforced and the conversations nobody had early enough. Etiquette isn't soft. It's execution infrastructure — and it belongs on your project charter.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SECTION 5: COMMUNICATION FRAMEWORKS ══════════ -->
+<section class="section section-alt">
+  <div class="page">
+    <div class="section-label">Section 05</div>
+    <h2 class="section-title">Communication Frameworks<br>Every PM Should Use</h2>
+    <p class="section-desc">Etiquette without structure is good intention without execution. These practical frameworks give your team the scaffolding to communicate with consistency and clarity.</p>
+
+    <div class="framework-grid">
+      <div class="fw-card">
+        <div class="fw-card-accent"></div>
+        <div class="fw-card-title">The SIR Escalation Model</div>
+        <p class="fw-card-body">Every escalation — whether written or verbal — should follow the same structure: <strong>Situation</strong> (what is happening and why it matters), <strong>Impact</strong> (what it affects in terms of scope, schedule, cost, or quality), and <strong>Recommendation</strong> (what you propose and what you need from leadership). Never escalate without all three.</p>
+        <div class="fw-tag-row">
+          <span class="fw-tag">Situation</span>
+          <span class="fw-tag">Impact</span>
+          <span class="fw-tag">Recommendation</span>
+        </div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-card-accent"></div>
+        <div class="fw-card-title">The RACI Accountability Matrix</div>
+        <p class="fw-card-body">Every deliverable and decision needs four things clarified: who is <strong>Responsible</strong> (does the work), <strong>Accountable</strong> (owns the outcome), <strong>Consulted</strong> (provides input), and <strong>Informed</strong> (receives updates). Build this at project kickoff and refer to it every time ownership ambiguity surfaces — which it will.</p>
+        <div class="fw-tag-row">
+          <span class="fw-tag">Responsible</span>
+          <span class="fw-tag">Accountable</span>
+          <span class="fw-tag">Consulted</span>
+          <span class="fw-tag">Informed</span>
+        </div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-card-accent"></div>
+        <div class="fw-card-title">The 3-Tier Status Reporting Format</div>
+        <p class="fw-card-body">Every status report should give stakeholders three things instantly: <strong>Overall health</strong> (RAG status — Red, Amber, Green), <strong>Key developments</strong> (what changed since last report), and <strong>Decision needed</strong> (what requires stakeholder input in the next cycle). Keep it scannable. Executives don't read walls of text — they scan for signal.</p>
+        <div class="fw-tag-row">
+          <span class="fw-tag">RAG Status</span>
+          <span class="fw-tag">Key Developments</span>
+          <span class="fw-tag">Decisions Needed</span>
+        </div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-card-accent"></div>
+        <div class="fw-card-title">The Meeting Action Closure Protocol</div>
+        <p class="fw-card-body">Before every meeting ends, run a 2-minute close: <strong>read back</strong> all action items captured, <strong>confirm</strong> each owner and due date out loud, and <strong>send</strong> the written recap within the hour. No action item leaves a meeting without a name and a date attached. This single habit eliminates more follow-up meetings than any other practice.</p>
+        <div class="fw-tag-row">
+          <span class="fw-tag">Read Back</span>
+          <span class="fw-tag">Confirm Owner + Date</span>
+          <span class="fw-tag">Send Recap</span>
+        </div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-card-accent"></div>
+        <div class="fw-card-title">The Risk Surfacing Cadence</div>
+        <p class="fw-card-body">Risk is not a quarterly exercise. Build a weekly rhythm: during team standups, explicitly ask "What risks emerged this week?" Maintain a living RAID log reviewed in every project meeting. Score each risk by probability and impact. Assign a mitigation owner. Review open risks at every status report. The goal is a team that surfaces risk early as a reflex — not as a last resort.</p>
+        <div class="fw-tag-row">
+          <span class="fw-tag">RAID Log</span>
+          <span class="fw-tag">Weekly Review</span>
+          <span class="fw-tag">Mitigation Owner</span>
+          <span class="fw-tag">P × I Scoring</span>
+        </div>
+      </div>
+      <div class="fw-card">
+        <div class="fw-card-accent"></div>
+        <div class="fw-card-title">The Scope Change Intake Protocol</div>
+        <p class="fw-card-body">Every change request — regardless of perceived size — runs through the same intake: <strong>Document</strong> the request formally, <strong>assess</strong> its impact across scope, schedule, cost, and quality, <strong>present</strong> options to the decision-making authority, and <strong>record</strong> the final decision and its rationale. There is no such thing as a "small" undocumented scope change. They are the most expensive kind.</p>
+        <div class="fw-tag-row">
+          <span class="fw-tag">Document</span>
+          <span class="fw-tag">Assess Impact</span>
+          <span class="fw-tag">Present Options</span>
+          <span class="fw-tag">Record Decision</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SECTION 6: EXECUTION DEBT WARNING SIGNS ══════════ -->
+<section class="section">
+  <div class="page">
+    <div class="section-label">Section 06</div>
+    <h2 class="section-title">Warning Signs Your Team Has<br>an Etiquette Problem</h2>
+    <p class="section-desc">These aren't personality conflicts — they're execution debt accumulating in real time. If you're seeing these patterns, the team's professional norms need a reset.</p>
+
+    <div class="mistakes-grid">
+      <div class="mistake-card">
+        <div class="mistake-x">⚠</div>
+        <div class="mistake-title">The PM Is Always Chasing Updates</div>
+        <p class="mistake-body">If your PM spends more than 20% of their time tracking down status from team members, you don't have a reporting problem — you have an accountability culture problem. Proactive updates are a professional baseline, not an optional courtesy.</p>
+      </div>
+      <div class="mistake-card">
+        <div class="mistake-x">⚠</div>
+        <div class="mistake-title">Scope Decisions Are Happening Outside the Room</div>
+        <p class="mistake-body">When stakeholders are getting informal direction from leadership and acting on it without routing through the PM, the project is running on parallel tracks. This always ends in conflict, rework, and missed timelines. The PM must be in the loop — always.</p>
+      </div>
+      <div class="mistake-card">
+        <div class="mistake-x">⚠</div>
+        <div class="mistake-title">Every Meeting Runs Long and Ends With No Clear Decisions</div>
+        <p class="mistake-body">Meetings without structured agendas, timed topics, and defined outputs are the most visible symptom of a team operating without professional discipline. If this is a weekly occurrence, it's not a scheduling problem — it's a facilitation and norms problem.</p>
+      </div>
+      <div class="mistake-card">
+        <div class="mistake-x">⚠</div>
+        <div class="mistake-title">Bad News Only Surfaces at Crisis Stage</div>
+        <p class="mistake-body">When team members routinely wait until a risk has fully materialized before surfacing it, the team doesn't have a psychological safety environment that rewards early disclosure. This is one of the most dangerous patterns a project team can develop.</p>
+      </div>
+      <div class="mistake-card">
+        <div class="mistake-x">⚠</div>
+        <div class="mistake-title">Action Items Are Assigned but Never Closed</div>
+        <p class="mistake-body">If your project tracking tool is full of action items in perpetual "in progress" status with no updates, your team has not internalized ownership accountability. Action items without closure dates and owner follow-through are just wish lists.</p>
+      </div>
+      <div class="mistake-card">
+        <div class="mistake-x">⚠</div>
+        <div class="mistake-title">Stakeholders Agree in Meetings, Then Act Differently</div>
+        <p class="mistake-body">When decisions made in a meeting get quietly reversed through individual action, the team hasn't established a "commit and execute" culture. This is a norm problem, not an individual problem — and it requires a direct, explicit conversation about team operating agreements.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CTA ══════════ -->
+<section class="cta-section" id="cta">
+  <div class="page">
+    <div class="cta-eyebrow">Ready to Build a High-Trust Project Culture?</div>
+    <h2 class="cta-title">Execution Starts With the <em>Standards You Set</em></h2>
+    <p class="cta-sub">Greater Ambitions LLC helps growth-stage companies build the execution infrastructure, operating norms, and PMO architecture that turn strategy into consistent results.</p>
+    <a href="https://greaterambitionsllc.com" class="cta-btn">I'm Available. Book Your Execution Strategy Consultation.</a>
+    <span class="cta-secondary">greaterambitionsllc.com · Tucson, AZ · Dr. Minina Johnson, DBA, PMP</span>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="footer">
+  <div class="page">
+    <div class="footer-brand">
+5 days ago
+
+Update index.html
+      <a href='https://postimg.cc/bSYhPL8Q' target='_blank'><img src='https://i.postimg.cc/bSYhPL8Q/rev-Screenshot-2026-04-27-at-10-23-19-AM.png' border='0' alt='rev-Screenshot-2026-04-27-at-10-23-19-AM'></a>
+last week
+
+Update index.html
+    </div>
+    <div class="footer-copy">
+      © 2025 Greater Ambitions LLC. All Rights Reserved.<br>
+      Dr. Minina Johnson, DBA, PMP, CSM · Founder & Strategic Execution Architect<br>
+      Diversity-Owned · Tucson, AZ
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
